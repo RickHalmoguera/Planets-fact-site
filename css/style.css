@@ -98,6 +98,7 @@ main .img-container img {
   width: 111px;
 }
 main .text-container {
+  height: 400px;
   grid-area: textArea;
   text-align: center;
 }
@@ -168,11 +169,15 @@ main .additional-characteristics-container .characteristic .char-value {
   main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
     gap: 2em;
     grid-template-areas: "planetImage textArea" "planetImage sectionMenu" "charArea charArea";
   }
   main .img-container img {
     width: 290px;
+  }
+  main .text-container {
+    text-align: left;
   }
   main .section-menu-big {
     display: flex;
@@ -181,6 +186,9 @@ main .additional-characteristics-container .characteristic .char-value {
   }
   main .section-menu-big .section-btn-big:hover {
     cursor: pointer;
+    background: #419EBB;
+  }
+  main .section-menu-big .selected {
     background: #419EBB;
   }
   main .additional-characteristics-container {
@@ -197,7 +205,7 @@ main .additional-characteristics-container .characteristic .char-value {
     padding: 1.5em;
   }
   main .additional-characteristics-container .characteristic .char-value {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .sections-menu {
     display: none;

@@ -21,7 +21,7 @@ const displayInfo = (planetSelectedInfo) =>{
         <div class="text-container">
             <h1 id="planetTitle">${planetSelectedInfo[0].name}</h1>
             <p id="planetContent">${planetSelectedInfo[0].overview.content}</p>
-            <a href=${planetSelectedInfo[0].overview.source}>Source: <span>Wikipedia</span>  <img src="./assets/icon-source.svg" alt=""></a>
+            <a href=${planetSelectedInfo[0].overview.source} id="planetSource">Source: <span>Wikipedia</span>  <img src="./assets/icon-source.svg" alt=""></a>
         </div>
 
         <div class="additional-characteristics-container">
@@ -64,18 +64,31 @@ const displayInfo = (planetSelectedInfo) =>{
 const changeContent = (dataToShow)=>{
     const planetImg = document.getElementById("planetImg")
     const planetContent = document.getElementById("planetContent")
-    const planetsource = document.getElementById("planetSource")
+    const planetSource = document.getElementById("planetSource")
 
     if(dataToShow === "overview"){
         planetImg.src = planetSelectedInfo[0].images.planet
         planetContent.innerText = planetSelectedInfo[0].overview.content
+        planetSource.href = planetSelectedInfo[0].overview.source
+        document.getElementById("overviewBig").classList.add("selected")
+        document.getElementById("structureBig").classList.remove("selected")
+        document.getElementById("geologyBig").classList.remove("selected")
     }else if(dataToShow === "structure"){
         console.log("hola")
         planetImg.src = planetSelectedInfo[0].images.internal
         planetContent.innerText = planetSelectedInfo[0].structure.content
+        planetSource.href = planetSelectedInfo[0].structure.source
+        document.getElementById("overviewBig").classList.remove("selected")
+        document.getElementById("structureBig").classList.add("selected")
+        document.getElementById("geologyBig").classList.remove("selected")
     }else if(dataToShow === "geology"){
         planetImg.src = planetSelectedInfo[0].images.geology
         planetContent.innerText = planetSelectedInfo[0].geology.content
+        planetSource.href = planetSelectedInfo[0].geology.source
+        document.getElementById("overviewBig").classList.remove("selected")
+        document.getElementById("structureBig").classList.remove("selected")
+        document.getElementById("geologyBig").classList.add("selected")
+        
     }
 }
 
@@ -114,12 +127,15 @@ const changePlanetInfo = (e)=>{
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
     }else if(e.target.id == "overviewLittle" || e.target.id == "overviewBig" ){
+        
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
     }else if(e.target.id == "structureLittle" || e.target.id == "structureBig" ){
+        
         dataToShow ="structure"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
     }else if(e.target.id == "geologyLittle" || e.target.id == "geologyBig" ){
+        
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
         dataToShow ="geology"
         
