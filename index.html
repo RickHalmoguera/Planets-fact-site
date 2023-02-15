@@ -14,44 +14,44 @@
         <h2>the planets</h2>
         <img src="./assets/icon-hamburger.svg" alt="">
         <div class="planets-container">
-            <p>mercury</p>
-            <p>venus</p>
-            <p>earth</p>
-            <p>mars</p>
-            <p>jupiter</p>
-            <p>saturn</p>
-            <p>uranus</p>
-            <p>neptune</p>
+            <p class="planet-btn selected" id="mercuryBtn">mercury</p>
+            <p class="planet-btn" id="venusBtn">venus</p>
+            <p class="planet-btn" id="earthBtn">earth</p>
+            <p class="planet-btn" id="marsBtn">mars</p>
+            <p class="planet-btn" id="jupiterBtn">jupiter</p>
+            <p class="planet-btn" id="saturnBtn">saturn</p>
+            <p class="planet-btn" id="uranusBtn">uranus</p>
+            <p class="planet-btn" id="neptuneBtn">neptune</p>
         </div>
     </header>
 
     <div class="sections-menu">
-        <div class="section-btn">overview</div>
-        <div class="section-btn">structure</div>
-        <div class="section-btn">surface</div>
+        <div id="overviewLittle" class="section-btn selected">overview</div>
+        <div id="structureLittle" class="section-btn">structure</div>
+        <div id="surfaceLittle" class="section-btn">surface</div>
     </div>
 
-    <main>
+    <main id="main">
         <div class="img-container">
-            <img src="./assets/planet-mercury.svg" alt="mercury" class="planet-img">
+            <img src="./assets/planet-mercury.svg" alt="mercury" class="planet-img" id="planetImg">
         </div>
 
         <div class="text-container">
-            <h1>Mercury</h1>
-            <p>Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.</p>
-            <a href="#">Source: <span>Wikipedia</span>  <img src="./assets/icon-source.svg" alt=""></a>
+            <h1 id="planetTitle">Mercury</h1>
+            <p id="planetContent">Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.</p>
+            <a href="#" id="planetSource">Source: <span>Wikipedia</span>  <img src="./assets/icon-source.svg" alt=""></a>
         </div>
 
         <div class="section-menu-big">
-            <div class="section-btn-big selected">
+            <div id="overviewBig" class="section-btn-big selected">
                 <p class="btn-number">01</p>
                 <p class="btn-text">overview</p>
             </div>
-            <div class="section-btn-big">
+            <div id="structureBig" class="section-btn-big">
                 <p class="btn-number">02</p>
                 <p class="btn-text">internal structure</p> 
             </div>
-            <div class="section-btn-big">
+            <div id="geologyBig" class="section-btn-big">
                 <p class="btn-number">03</p>
                 <p class="btn-text">surface geology</p> </div>
         </div>

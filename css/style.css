@@ -51,6 +51,9 @@ header .planets-container p:hover {
   cursor: pointer;
   color: #FFFFFF;
 }
+header .planets-container .selected {
+  color: #FFFFFF;
+}
 
 .sections-menu {
   display: flex;
