@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h2, .char-value {
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0;
+  background: url(../assets/background-stars.svg);
+  background-color: #070724;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-family: "League Spartan", sans-serif;
+}
+
+header {
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+header h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 400;
+}
+header .planets-container {
+  display: none;
+  text-transform: uppercase;
+  text-align: right;
+  gap: 2em;
+  font-weight: 700;
+  color: #838391;
+  letter-spacing: 2px;
+}
+header .planets-container p:hover {
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.sections-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2em;
+  font-weight: 700;
+  color: #838391;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 1px solid #38384F;
+}
+.sections-menu .selected {
+  border-bottom: 4px solid #419EBB;
+  color: #FFFFFF;
+}
+.sections-menu .section-btn {
+  padding: 2em 0em;
+  border-bottom: 4px solid transparent;
+}
+.sections-menu .section-btn:hover {
+  cursor: pointer;
+  border-bottom: 4px solid #419EBB;
+  color: #FFFFFF;
+}
+
+main {
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2em;
+  grid-template-areas: "planetImage" "textArea" "charArea";
+}
+main .img-container {
+  grid-area: planetImage;
+  min-height: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .img-container img {
+  width: 111px;
+}
+main .text-container {
+  grid-area: textArea;
+  text-align: center;
+}
+main .text-container h1 {
+  font-size: 2.5rem;
+}
+main .text-container p {
+  line-height: 2;
+  letter-spacing: 2px;
+  margin-bottom: 2.5em;
+}
+main .text-container a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #838391;
+}
+main .text-container a span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+main .section-menu-big {
+  grid-area: sectionMenu;
+  display: none;
+}
+main .section-menu-big .section-btn-big {
+  border: 1px solid #38384F;
+  padding: 1em 1.5em;
+  display: flex;
+  gap: 2em;
+}
+main .section-menu-big .section-btn-big .btn-text {
+  text-transform: uppercase;
+}
+main .additional-characteristics-container {
+  grid-area: charArea;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+main .additional-characteristics-container .characteristic {
+  border: 1px solid #838391;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  color: #838391;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .additional-characteristics-container .characteristic .char-title {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+main .additional-characteristics-container .characteristic .char-value {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  html {
+    height: 100vh;
+    align-items: center;
+  }
+  header {
+    border: 1px solid #38384F;
+  }
+  header .planets-container {
+    display: flex;
+  }
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2em;
+    grid-template-areas: "planetImage textArea" "planetImage sectionMenu" "charArea charArea";
+  }
+  main .img-container img {
+    width: 290px;
+  }
+  main .section-menu-big {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  main .section-menu-big .section-btn-big:hover {
+    cursor: pointer;
+    background: #419EBB;
+  }
+  main .additional-characteristics-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main .additional-characteristics-container .characteristic {
+    width: 255px;
+    height: 128px;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    padding: 1.5em;
+  }
+  main .additional-characteristics-container .characteristic .char-value {
+    font-size: 2.5rem;
+  }
+  .sections-menu {
+    display: none;
+  }
+  header img {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
