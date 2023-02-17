@@ -12,7 +12,7 @@
 <body>
     <header>
         <h2>the planets</h2>
-        <img src="./assets/icon-hamburger.svg" alt="">
+        <img src="./assets/icon-hamburger.svg" alt="" id="hamburgerIcon">
         <div class="planets-container">
             <p class="planet-btn selected" id="mercuryBtn">mercury</p>
             <p class="planet-btn" id="venusBtn">venus</p>
@@ -24,16 +24,114 @@
             <p class="planet-btn" id="neptuneBtn">neptune</p>
         </div>
     </header>
+    <div class="planet-menu hidden" id="planetMenu">
+        <div class="planet-menu-btn" id="mercuryMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-mercury.svg" alt="mercury">
+                </div>
+                <div class="planet-name">
+                    mercury</div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
 
+        <div class="planet-menu-btn" id="venusMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-venus.svg" alt="venus">
+                </div>
+                <div class="planet-name">
+                    venus
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="earthMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-earth.svg" alt="earth">
+                </div>
+                <div class="planet-name">
+                    earth
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="marsMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-mars.svg" alt="mars">
+                </div>
+                <div class="planet-name">
+                    mars
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="jupiterMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-jupiter.svg" alt="jupiter">
+                </div>
+                <div class="planet-name">
+                    jupiter
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="saturnMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-saturn.svg" alt="saturn">
+                </div>
+                <div class="planet-name">
+                    saturn
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="uranusMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-uranus.svg" alt="uranus">
+                </div>
+                <div class="planet-name">
+                    uranus
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+
+        <div class="planet-menu-btn" id="neptuneMenuBtn">
+            <div class="planet-circle-name-container">
+                <div class="planet-circle">
+                    <img src="./assets/planet-neptune.svg" alt="neptune">
+                </div>
+                <div class="planet-name">
+                    neptune
+                </div>
+            </div>
+            <div class="planet-chevron"><img src="./assets/icon-chevron.svg" alt=""></div>
+        </div>
+    </div>
+
+    
     <div class="sections-menu">
-        <div id="overviewLittle" class="section-btn selected">overview</div>
+        <div id="overviewLittle" class="section-btn selected ">overview</div>
         <div id="structureLittle" class="section-btn">structure</div>
-        <div id="surfaceLittle" class="section-btn">surface</div>
+        <div id="geologyLittle" class="section-btn">surface</div>
     </div>
 
     <main id="main">
         <div class="img-container">
             <img src="./assets/planet-mercury.svg" alt="mercury" class="planet-img" id="planetImg">
+            <img src="./assets/geology-mercury.png" alt="planet geology" class="second-img hidden" id="geologyImg">
         </div>
 
         <div class="text-container">

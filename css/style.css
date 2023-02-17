@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap");
+
+:root{
+  --planet-color : #419EBB;
+}
 * {
   box-sizing: border-box;
 }
@@ -16,7 +20,12 @@ h1, h2, .char-value {
   color: #FFFFFF;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
+  position: relative;
   max-width: 1440px;
   margin: 0;
   background: url(../assets/background-stars.svg);
@@ -38,6 +47,9 @@ header h2 {
   font-size: 2rem;
   font-weight: 400;
 }
+header img {
+  cursor: pointer;
+}
 header .planets-container {
   display: none;
   text-transform: uppercase;
@@ -55,6 +67,33 @@ header .planets-container .selected {
   color: #FFFFFF;
 }
 
+.planet-menu {
+  z-index: 900;
+  position: absolute;
+  background: #070724;
+  top: 9em;
+  width: 100%;
+}
+.planet-menu .planet-menu-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 1em;
+  border-bottom: 1px solid #38384F;
+}
+.planet-menu .planet-menu-btn .planet-circle-name-container {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.planet-menu .planet-menu-btn .planet-circle-name-container .planet-circle img {
+  width: 20px;
+}
+
 .sections-menu {
   display: flex;
   justify-content: space-between;
@@ -65,17 +104,17 @@ header .planets-container .selected {
   letter-spacing: 3px;
   border: 1px solid #38384F;
 }
-.sections-menu .selected {
-  border-bottom: 4px solid #419EBB;
-  color: #FFFFFF;
-}
 .sections-menu .section-btn {
   padding: 2em 0em;
   border-bottom: 4px solid transparent;
 }
 .sections-menu .section-btn:hover {
   cursor: pointer;
-  border-bottom: 4px solid #419EBB;
+  border-bottom: 4px solid var(--planet-color);
+  color: #FFFFFF;
+}
+.sections-menu .selected {
+  border-bottom: 4px solid var(--planet-color);
   color: #FFFFFF;
 }
 
@@ -88,6 +127,7 @@ main {
   grid-template-areas: "planetImage" "textArea" "charArea";
 }
 main .img-container {
+  position: relative;
   grid-area: planetImage;
   min-height: 256px;
   display: flex;
@@ -96,6 +136,11 @@ main .img-container {
 }
 main .img-container img {
   width: 111px;
+}
+main .img-container .second-img {
+  width: 15%;
+  position: absolute;
+  top: 50%;
 }
 main .text-container {
   height: 400px;
@@ -173,8 +218,16 @@ main .additional-characteristics-container .characteristic .char-value {
     gap: 2em;
     grid-template-areas: "planetImage textArea" "planetImage sectionMenu" "charArea charArea";
   }
+  main .img-container {
+    position: relative;
+  }
   main .img-container img {
     width: 290px;
+  }
+  main .img-container .second-img {
+    width: 35%;
+    position: absolute;
+    top: 50%;
   }
   main .text-container {
     text-align: left;
@@ -186,10 +239,10 @@ main .additional-characteristics-container .characteristic .char-value {
   }
   main .section-menu-big .section-btn-big:hover {
     cursor: pointer;
-    background: #419EBB;
+    background: var(--planet-color);
   }
   main .section-menu-big .selected {
-    background: #419EBB;
+    background: var(--planet-color);
   }
   main .additional-characteristics-container {
     flex-direction: row;

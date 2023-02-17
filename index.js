@@ -1,14 +1,45 @@
 const planetsBtns = document.querySelectorAll(".planet-btn")
 const mainDisplay = document.getElementById("main")
+const selectedContentLittle = document.querySelectorAll(".section-btn")
+const selectedContentBig = document.querySelectorAll(".section-btn-big")
+const hamburgerIcon = document.getElementById("hamburgerIcon")
+const planetMenu = document.getElementById("planetMenu")
+const rootCss = document.querySelector(":root")
 
+let isShowing = true
 let planetsInfo =[]
 let planetSelectedInfo =[]
 let planetName = "Mercury"
 let dataToShow
 
-    fetch('./data.json')
-    .then(response => response.json())
-    .then(data => planetsInfo = data);
+fetch('./data.json')
+.then(response => response.json())
+.then(data => planetsInfo = data);
+
+const displayPlanetMenu = () =>{
+    isShowing = !isShowing
+    isShowing? planetMenu.classList.add("hidden") : planetMenu.classList.remove("hidden")
+}
+
+const removeSelectedPlanet = (planet) =>{
+    planetsBtns.forEach(btn => {
+        btn.classList.remove("selected")
+    });
+    document.getElementById(planet).classList.add("selected")
+}
+const removeSelectedContentLittle = ()=>{
+    selectedContentLittle.forEach(btn => {
+        btn.classList.remove("selected")
+    });
+}
+
+const removeSelectedContentBig = ()=>{
+    selectedContentBig.forEach(btn => {
+        btn.classList.remove("selected")
+    });
+    
+}
+
 
 const displayInfo = (planetSelectedInfo) =>{
 
@@ -16,6 +47,7 @@ const displayInfo = (planetSelectedInfo) =>{
     `
     <div class="img-container">
             <img src= ${planetSelectedInfo[0].images.planet} alt="${planetSelectedInfo[0].name}" class="planet-img" id="planetImg">
+            <img src=${planetSelectedInfo[0].images.geology} alt="planet geology" class="second-img hidden" id="geologyImg">
         </div>
 
         <div class="text-container">
@@ -44,7 +76,7 @@ const displayInfo = (planetSelectedInfo) =>{
     </div>
 
     <div class="section-menu-big">
-    <div id="overviewBig" class="section-btn-big selected">
+    <div id="overviewBig" class="section-btn-big">
         <p class="btn-number">01</p>
         <p class="btn-text">overview</p>
     </div>
@@ -65,67 +97,101 @@ const changeContent = (dataToShow)=>{
     const planetImg = document.getElementById("planetImg")
     const planetContent = document.getElementById("planetContent")
     const planetSource = document.getElementById("planetSource")
-
+    const geologyImg = document.getElementById("geologyImg")
+    rootCss.style.setProperty('--planet-color', planetSelectedInfo[0].color)
     if(dataToShow === "overview"){
+        geologyImg.classList.add("hidden")
         planetImg.src = planetSelectedInfo[0].images.planet
+        geologyImg.href = planetSelectedInfo[0].images.geology
         planetContent.innerText = planetSelectedInfo[0].overview.content
         planetSource.href = planetSelectedInfo[0].overview.source
+        removeSelectedContentLittle()
+        removeSelectedContentBig()
         document.getElementById("overviewBig").classList.add("selected")
-        document.getElementById("structureBig").classList.remove("selected")
-        document.getElementById("geologyBig").classList.remove("selected")
+        document.getElementById("overviewLittle").classList.add("selected")
+        
+        
     }else if(dataToShow === "structure"){
-        console.log("hola")
+        geologyImg.classList.add("hidden")
         planetImg.src = planetSelectedInfo[0].images.internal
         planetContent.innerText = planetSelectedInfo[0].structure.content
         planetSource.href = planetSelectedInfo[0].structure.source
-        document.getElementById("overviewBig").classList.remove("selected")
+        removeSelectedContentLittle()
+        removeSelectedContentBig()
         document.getElementById("structureBig").classList.add("selected")
-        document.getElementById("geologyBig").classList.remove("selected")
+        document.getElementById("structureLittle").classList.add("selected")
+
     }else if(dataToShow === "geology"){
-        planetImg.src = planetSelectedInfo[0].images.geology
+        geologyImg.classList.remove("hidden")
+        planetImg.src = planetSelectedInfo[0].images.planet
         planetContent.innerText = planetSelectedInfo[0].geology.content
         planetSource.href = planetSelectedInfo[0].geology.source
-        document.getElementById("overviewBig").classList.remove("selected")
-        document.getElementById("structureBig").classList.remove("selected")
+        removeSelectedContentLittle()
+        removeSelectedContentBig()
         document.getElementById("geologyBig").classList.add("selected")
+        document.getElementById("geologyLittle").classList.add("selected")
         
     }
 }
 
 const changePlanetInfo = (e)=>{
     
-    if(e.target.id == "mercuryBtn"){
+    if(e.target.id == "mercuryBtn" || e.target.id == "mercuryMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Mercury"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "venusBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "venusBtn" || e.target.id == "venusMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Venus"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "earthBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "earthBtn" || e.target.id == "earthMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Earth"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "marsBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "marsBtn" || e.target.id == "marsMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Mars"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "jupiterBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "jupiterBtn" || e.target.id == "jupiterMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Jupiter"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "saturnBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "saturnBtn" || e.target.id == "saturnMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Saturn"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "uranusBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "uranusBtn" || e.target.id == "uranusMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Uranus"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
-    }else if(e.target.id == "neptuneBtn"){
+        removeSelectedPlanet(e.target.id)
+    }else if(e.target.id == "neptuneBtn" || e.target.id == "neptuneMenuBtn"){
+        planetMenu.classList.add("hidden")
+        isShowing = !isShowing
         planetName = "Neptune"
         dataToShow ="overview"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
+        removeSelectedPlanet(e.target.id)
     }else if(e.target.id == "overviewLittle" || e.target.id == "overviewBig" ){
         
         dataToShow ="overview"
@@ -135,10 +201,8 @@ const changePlanetInfo = (e)=>{
         dataToShow ="structure"
         planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
     }else if(e.target.id == "geologyLittle" || e.target.id == "geologyBig" ){
-        
-        planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
         dataToShow ="geology"
-        
+        planetSelectedInfo = planetsInfo.filter( planet => planet.name === planetName)
     }
 
     displayInfo(planetSelectedInfo)
@@ -147,3 +211,4 @@ const changePlanetInfo = (e)=>{
 
 
 document.addEventListener("click", changePlanetInfo)
+hamburgerIcon.addEventListener("click",displayPlanetMenu)
